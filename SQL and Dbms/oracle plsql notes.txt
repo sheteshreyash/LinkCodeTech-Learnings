@@ -1,0 +1,118 @@
+PL sql stands for procedure language.
+
+begin, declare and end are the mandatory words in plsql.
+
+To get the output on the pl-sql, we use { set serveroutput on; } 
+because pl-sql does not support multiple servers.
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------
+
+set serveroutput on;
+
+
+declare
+       n1 number;
+       n2 number;
+       add number;
+begin
+      n1 := &n1;
+      n2 := &n2;
+      add := n1 + n2;
+      dbms_output.put_line('Addition is ' || add);
+end;
+/
+
+
+-----------------------------------------------------------------------------------------------
+
+
+CREATE TABLE employeenew
+(
+  empid NUMBER(6) PRIMARY KEY,
+  firstname VARCHAR(30),
+  salary NUMBER(6)
+);
+
+
+insert into employeenew values(101, 'Ganesh',20000);
+insert into employeenew values(102, 'Suresh', 30000);
+insert into employeenew values(103, 'Shreyash', 12000);
+
+
+------------------------------------------------------------------------------------------------
+
+
+
+declare
+
+      eid employeenew.empid%type;
+      enm employeenew.firstname%type;
+      sal employeenew.salary%type;
+      incr employeenew.salary%type;
+
+begin
+ 
+      eid := &eid;
+
+      select firstname, salary into enm, sal from employeenew where empid = eid;
+      dbms_output.put_line('Employee Name :    ' || enm);
+      dbms_output.put_line('Employee Salary :  ' || sal);
+     
+      if sal < 15000 then
+             dbms_output.put_line('low Salary');
+             incr := sal*0.05;
+
+      elsif sal >= 15000 and sal <= 20000 then
+             dbms_output.put_line('Average Salary');
+             incr := sal*0.07;
+
+      else
+             dbms_output.put_line('Good Salary');
+             incr := sal*0.09;       
+     
+      end if;
+ 
+      update employeenew set salary = sal + incr where empid = eid;
+      dbms_output.put_line('Salary Updated...');
+      
+     
+end;
+/
+
+------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
+
+( using procedure )
+
+
+create or replace procedure
+annual_salary(eno employeenew.empid%type, annual out employeenew.salary%type)
+is
+asal employeenew.salary%type;
+begin
+select salary into asal from employeenew where empid = eno;
+       annual := asal * 12;
+end;
+/
+
+( procedure created )
+
+--------
+
+declare
+     asal employeenew.salary%type;
+begin
+     annual_salary(10000, asal);
+     dbms_output.put_line
+
+
+
+
+
+

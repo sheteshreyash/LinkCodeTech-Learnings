@@ -1,0 +1,368 @@
+ 
+
+
+           +-----------------+                 +------------------+              +-----------------+
+           |       User      |                 |   Lab Assistant  |              |    Technician   |
+           +--------+--------+                 +--------+---------+              +--------+--------+
+                    |                                     |                                   |
+                    |      Visit website,                 |                                   |
+                    |      register as a user             |                                   |
+                    |------------------------------------>|                                   |
+                    |                                     |                                   |
+                    |                                     |   Receive sample and generate     |
+                    |                                     |   unique ID                       |
+                    |                                     |---------------------------------->|
+                    |                                     |                                   |
+                    |                                     |   Conduct test and upload results |
+                    |                                     |---------------------------------->|
+                    |                                     |                                   |
+                    |                                     |   Assign test to technician       |
+                    |                                     |---------------------------------->|
+                    |                                     |                                   |
+                    |                                     |  Notify Lab Assistant of result   |
+                    |                                     |---------------------------------->|
+                    |                                     |                                   |
+                    |                                     |   Rate the website                |
+                    |                                     |---------------------------------->|
+                    |                                     |                                   |
+                    |                                     |   Log out of system               |
+                    |                                     |<----------------------------------|
+                    |                                     |                                   |
+           +--------+--------+                 +--------+---------+              +-----------------+
+           |    User         |                 |   Lab Assistant  |              |    Technician   |
+           +-----------------+                 +------------------+              +-----------------+
+                       /\                                /\
+                       ||                                ||
+                 Admin login                          Admin login
+                       ||                                ||
+                       \/                                \/
+               +-----------------+                +-----------------+
+               |    Admin        |                |    Admin        |
+               +--------+--------+                +--------+--------+
+                        |                                  |
+                        |  Login as admin user             |
+                        |--------------------------------->|
+                        |                                  |
+                        |  Access user and technician data |
+                        |--------------------------------->|
+                        |                                  |
+                        |  Modify data, if necessary       |
+                        |--------------------------------->|
+                        |                                  |
+                        |  Log out of system               |
+                        |<---------------------------------|
+                        |                                  |
+               +--------+--------+                +--------+--------+
+               |    Admin        |                |    Admin        |
+               +-----------------+                +-----------------+
+
+
+
++-----------------------------------------+
+|             DiagnosticLab               |
++-----------------------------------------+
+| -tests: List<Test>                      |
+| -patients: List<Patient>                |
+| -employees: List<Employee>              |
+| -orders: List<Order>                    |
++-----------------------------------------+
+| +addTest(test: Test): void              |
+| +removeTest(test: Test): void           |
+| +getTest(testId: int): Test             |
+| +addPatient(patient: Patient): void     |
+| +removePatient(patient: Patient): void  |
+| +getPatient(patientId: int): Patient    |
+| +addEmployee(employee: Employee): void  |
+| +removeEmployee(employee: Employee):void|
+| +getEmployee(employeeId: int): Employee |
+| +createOrder(patient: Patient,          |
+| tests: List<Test>): Order               |
+| +cancelOrder(order: Order): void        |
+| +getOrder(orderId: int): Order          |
++-----------------------------------------+
+
++---------------------------------+             +------------------------------------+
+|     Test                        |             |    Patient                         |
++---------------------------------+             +------------------------------------+
+| -testId: int                    |             | -patientId: int                    |
+| -name: String                   |             | -name: String                      |
+| -price: double                  |             | -address: String                   |
++---------------------------------+             | -phone: String                     |
+|                                 |             | -email: String                     |
+|                                 |             +------------------------------------+
+| +getTestId(): int               |             | +getPatientId(): int               |
+| +getName(): String              |             | +getName(): String                 |
+| +setName(name: String): void    |             | +setName(name: String): void       |
+| +getPrice(): double             |             | +getAddress(): String              |
+| +setPrice(price: double): void  |             | +setAddress(address: String): void |
++---------------------------------+             | +getPhone(): String                |
+                                                | +setPhone(phone: String): void     |
+                                                | +getEmail(): String                |
+                                                | +setEmail(email: String): void     |
+                                                +------------------------------------+
+
++----------------------------------------+            +--------------------------+
+|    Employee                            |            |     Order                |
++----------------------------------------+            +--------------------------+
+| -employeeId: int                       |            | -orderId: int            |
+| -name: String                          |            | -patient: Patient        |
+| -position: String                      |            | -tests: List<Test>       |
+| -username: String                      |            | -totalPrice: double      |
+| -password: String                      |            | -status: String          |
++----------------------------------------+            | -dateCreated: Date       |
+| +getEmployeeId(): int                  |            | -dateCompleted: Date     |
+| +getName(): String                     |            | -employee: Employee      |
+| +setName(name: String): void           |            +--------------------------+
+| +getPosition(): String                 |            | +getOrderId(): int       |
+| +setPosition(position: String): void   |            | +getPatient(): Patient   |
+| +getUsername(): String                 |            | +getTests(): List<Test>  |
+| +setUsername(username: String): void   |            | +getTotalPrice(): double |
+| +getPassword(): String                 |            | +getStatus(): String     |
+| +setPassword(password: String): void   |            | +getDateCreated(): Date  |
++----------------------------------------+            | +getDateCompleted(): Date|
+                                                      | +getEmployee(): Employee |
+                                                      +--------------------------+
+
+
+
+
++--------------------------------------+       +---------------------+         +--------------------------------------+         +-------------------------------------------+
+|      User                            |       |      Admin          |         |   TestBooking                        |         |       Website                             |
++--------------------------------------+       +---------------------+         +--------------------------------------+         +-------------------------------------------+
+| -userId: int                         |       |                     |         | -bookingId: int                      |         |                                           |
+| -username: String                    |       |                     |         | -testName: String                    |         |                                           |
+| -password: String                    |       |                     |         | -userId: int                         |         |                                           |
+| -email: String                       |       |                     |         | -testDate: Date                      |         |                                           |
+|                                      |       |                     |         | -status: String                      |         |                                           |
+| +getUserId(): int                    |       | +login(username,    |         |                                      |         |                                           |
+| +getUsername(): String               |       | password): bool     |         | +bookTest(): void                    |         | +getWebsiteRating(): float                |
+| +setUsername(username: String): void |       | +logout(): void     |         | +cancelTest(): void                  |         | +setWebsiteRating(rating: float): void    |
+| +getPassword(): String               |       | +addTest(): void    |         | +getTestStatus(): String             |         |                                           |
+| +setPassword(password: String): void |       | +updateTest(): void |         | +setTestStatus(status: String): void |         |                                           |
+| +getEmail(): String                  |       | +removeTest(): void |         +--------------------------------------+         +-------------------------------------------+
+| +setEmail(email: String): void       |       |                     |       
++--------------------------------------+       +---------------------+
+
+
+
+------------------------------------------------------------------------------------------------------------------
+
+
+Users
+------
+user_id (PK)
+username
+password
+email
+
+Admins
+------
+admin_id (PK)
+username
+password
+email
+
+Tests
+-----
+test_id (PK)
+test_name
+doctor_id (FK to Doctors table)
+user_id (FK to Users table)
+test_date
+status
+
+Reports
+-------
+report_id (PK)
+test_id (FK to Tests table)
+patient_name
+test_result
+
+Doctors
+-------
+doctor_id (PK)
+name
+speciality
+
+Ratings
+-------
+rating_id (PK)
+user_id (FK to Users table)
+rating_value
+comments
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
++------------------------------------+
+|        Online Diagnostic Lab       |
++------------------------------------+
+| -users: List<User>                 |
+| -orders: List<Order>               |
+| -tests: List<Test>                 |
+| -technicians: List<Technician>     |
++------------------------------------+
+
+
++----------------+         +-------------------------+
+|   User         |         |  Order                  |
++----------------+         +-------------------------+
+| -id: int       |         | -id: int                |
+| -name: String  |         | -user: User             |
+| -email: String |         | -test: Test             |
++----------------+         | -status: OrderStatus    |
+                           | -technician: Technician |
+                           +-------------------------+
+
+
++----------------+         +----------------+
+|   Test         |         | Technician     |
++----------------+         +----------------+
+| -id: int       |         | -id: int       |
+| -name: String  |         | -name: String  |
+| -price: double |         | -email: String |
++----------------+         +----------------+
+
+
++-----------------+
+|   OrderStatus   |
++-----------------+
+| -PENDING        |
+| -IN_PROGRESS    |
+| -COMPLETED      |
+| -CANCELLED      |
++-----------------+
+
+
+
+In this diagram, the Online Diagnostic Lab class represents the main entity of the system. 
+It has several attributes, such as users, orders, tests, and technicians.
+
+The User class represents the users of the system, such as patients or doctors. 
+It has attributes like id, name, and email.
+
+The Order class represents the diagnostic orders created by users. 
+It has attributes like id, user, test, status, and technician. 
+The status attribute is an enum called OrderStatus, which indicates the current status of the order.
+
+The Test class represents the different types of diagnostic tests offered by the lab. 
+It has attributes like id, name, and price.
+
+The Technician class represents the lab technicians responsible for carrying out the diagnostic tests. 
+It has attributes like id, name, and email.
+
+Overall, this UML class diagram provides a high-level overview of the entities 
+involved in an online diagnostic lab system and their relationships.
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
++----------------------+        +-----------------------+          +-----------------+
+|   TestBooking        |        |         LabTest       |          |    Patient      |
++----------------------+        +-----------------------+          +-----------------+
+| -bookingId: int      |        | -testId: int          |          | -patientId: int |
+| -testName: String    |        | -testName: String     |          | -name: String   |
+| -testDate: Date      |        | -testPrice: double    |          | -address: String|
+| -testStatus: String  |        +-----------------------+          | -phone: String  |
+| -testResults: String |        |    TestCategory       |          +-----------------+
+| -patientId: int      |        +-----------------------+
+| -labTestId: int      |        | -categoryId: int      |
++----------------------+        | -categoryName: String |
+                                +-----------------------+
+
+
+
+In this diagram, the TestBooking class represents the booking of a diagnostic test by a patient. 
+It has attributes like bookingId, testName, testDate, testStatus, testResults, patientId, and labTestId.
+
+The LabTest class represents the diagnostic tests offered by the lab. 
+It has attributes like testId, testName, and testPrice.
+
+The Patient class represents the patient who has booked the test. 
+It has attributes like patientId, name, address, and phone.
+
+The TestCategory class represents the categories of the different diagnostic tests. 
+It has attributes like categoryId and categoryName.
+
+Overall, this UML class diagram provides a high-level overview of the entities involved in lab test booking and their relationships. 
+The TestBooking class acts as an intermediary between the LabTest and Patient classes, 
+linking the two and providing additional information about the test booking. 
+The TestCategory class provides additional information about the diagnostic tests,
+allowing them to be classified into different categories.
+
+
+
+===============================================================================================================================================
+
+
+
+
+•	DAO - The DAO (data access layer) provides an interface to connect with the database and access the data stored in the database. A single DAO class can deal with queries retrieving different types of entities.
+•	Repository - This layer is similar to the DAO layer which connects to the database and accesses the data. However the repository layer provides a greater abstraction compared to the DAO layer. Every class is responsible for accessing and manipulating one entity. This tutorial will use the repository layer.
+•	Service - This layer calls the DAO layer to get the data and perform business logic on it. The business logic in the service layer could be - performing calculations on the data received, filtering data based on some logic, etc.
+•	Model - The model contains all the Java objects that will be mapped to the database table using. The DAO will fetch the data from the database and populate the respective model with that data and return it to the service layer and vice versa.
+•	Controller - This is the topmost layer, called when a request comes for a particular REST API. The controller will process the REST API request, calls one or more services and returns an HTTP response to the client.
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+1) Users table :                             2) Appointments table :
+
+create table Users                              create table appointment
+(                                               (
+user_id number(20) primary key,                 appoint_id number(20) primary key,
+email varchar2(40),                             user_id number(20),
+password varchar2(20),                          foreign key (user_id) references Users(user_id),
+first_name varchar2(20),                        doc_id number(20),
+last_name varchar2(20),                         foreign key (doc_id) references Doctors(doc_id),
+gender varchar2(10),                            appnt_date varchar2(20),
+date_of_birth varchar2(20)                      appnt_time varchar2(30),
+);                                              status(pending/confirmed/cancelled) varchar2(20)
+                                                );
+
+
+
+
+3) Doctors table :                              4) Tests table :
+
+create table Doctors                              create table Tests
+(                                                 (
+doc_id number(20) primary key,                    test_id number(20) primary key,
+doc_name varchar2(20),                            test_name varchar2(30),
+doc_details varchar2(40)                          test_price number(20)
+);                                                );
+
+
+
+
+5) Appointment test table :
+
+create table appnt_Tests
+(
+appnt_test_id number(20) primary key,
+appoint_id number(20),
+foreign key (appoint_id) references appointment(appoint_id),
+test_id number(20),
+foreign key (test_id) references Tests(test_id),
+);
+
+
+6) Payments table :
+
+create table payments
+(
+payment_id number(20) primary key,
+appoint_id number(20),
+foreign key (appoint_id) references appointment(appoint_id),
+amount number(20),
+payment_date varchar2(20)
+);
+
+
+

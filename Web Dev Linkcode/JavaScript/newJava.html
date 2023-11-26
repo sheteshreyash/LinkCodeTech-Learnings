@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Calculator app</title>
+</head>
+<body>
+    <input type="text" id="no1"><br>
+    <input type="text" id="no2"><br>
+    <input type="submit" value="Add" onclick="Addition()">
+    <input type="submit" value="Sub" onclick="Substraction()">
+    <input type="submit" value="Mul" onclick="Multiplication()">
+    <input type="submit" value="Div" onclick="Division()">
+    <div id="result">Your result is here</div>
+</body>
+
+<script>
+    function Addition(){
+        alert('Hello');
+        var v1=document.getElementById("no1").value;
+        var v2=document.getElementById("no2").value;
+
+        alert(parseInt(v1)+parseInt(v2));
+        var r=parseInt(v1)+parseInt(v2);
+        document.getElementById('result').innerHTML="<h1> Ans is "+r+"</h1>";
+    }
+
+
+    function Substraction(){
+        alert('Hello');
+        var v1=document.getElementById("no1").value;
+        var v2=document.getElementById("no2").value;
+
+        alert(parseInt(v1)-parseInt(v2));
+        var r=parseInt(v1)-parseInt(v2);
+        document.getElementById('result').innerHTML="<h1> Ans is "+r+"</h1>";
+    }
+
+
+    function Multiplication(){
+        alert('Hello');
+        var v1=document.getElementById("no1").value;
+        var v2=document.getElementById("no2").value;
+
+        alert(parseInt(v1)*parseInt(v2));
+        var r=parseInt(v1)*parseInt(v2);
+        document.getElementById('result').innerHTML="<h1> Ans is "+r+"</h1>";
+    }
+
+
+    function Division(){
+        alert('Hello');
+        var v1=document.getElementById("no1").value;
+        var v2=document.getElementById("no2").value;
+
+        alert(parseInt(v1)/parseInt(v2));
+        var r=parseInt(v1)/parseInt(v2);
+        document.getElementById('result').innerHTML="<h1> Ans is "+r+"</h1>";
+    }
+
+
+
+    
+
+    
+
+</script>
+</html>

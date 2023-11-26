@@ -1,0 +1,523 @@
+CREATE TABLE dept
+(
+  dept_no number(2) constraint dept_dept_no__pk PRIMARY KEY,
+  dname varchar2(20) NOT NULL,                       // We cannot insert null values here
+  loc varchar2(20)
+);                                           //Constraints are restrictions..
+
+insert into dept values(10, 'Testing', 'Pune');
+
+CREATE TABLE employee
+(
+  empno NUMBER(6) constraint emp_empno_pk PRIMARY KEY,
+  ename VARCHAR(30),
+  grade CHAR(2),
+  dob DATE,
+  deptno number(2),
+  FOREIGN KEY(deptno) REFERENCES dept(deptno)
+);
+
+insert into employee values(101, 'Ganesh', 'A', sysdate, 20);
+
+
+----------------------------------------------------------
+
+
+checked Constraint :
+
+CREATE TABLE employee
+(
+  empno NUMBER(6) PRIMARY KEY,
+  ename VARCHAR(30),
+  grade CHAR(2),
+  dob DATE CHECK(dob<'1-jan-2006') ,
+  deptno number(2)
+);
+
+
+-----------------------------------------------
+
+Unique Constraint :
+
+CREATE TABLE employee
+(
+  empno NUMBER(6) PRIMARY KEY,
+  ename VARCHAR(30),
+  grade CHAR(2),
+  dob DATE CHECK(dob<'1-jan-2006') ,
+  email varchar2(20) constraint u_em_email UNIQUE,
+  deptno number(2),
+);
+
+------------------------------------------
+
+Main Difference between unique constraint and checked constraint :
+
+checked constraint don't accept null values, dont accept unique values as well as cannot involve other tables, 
+while a unique constraint accept null values but dont accept unique values.
+
+unique constraint is implemented by a unique index, while a checked constraint is just a rule 
+which gets checked when an update or insert happens...
+
+-----------------------------------------------------
+
+Primary key = dont accept duplicate values
+foreign key = used to connect two tables based on the reference of primary key
+not null = dont accept null values
+default = accept default value if null value is inserted
+unique constraint = 
+checked constraint = 
+
+--------------------------------------------------------------
+--------------------------------------------------------------
+
+
+DML operations on the database :
+
+1) Insert commands :-
+
+
+CREATE TABLE employee
+(
+  empno NUMBER(6),
+  ename VARCHAR(30),
+  grade CHAR(2),
+  dob DATE CHECK(dob<'1-jan-2006') ,
+  deptno number(2)
+);
+
+insert into employee(empno, ename, grade, dob) values(101, 'Shreyash', 'A', '1-jan-1998');
+
+// to use the default data
+
+insert into employee(empno, ename, grade, dob) values(&empno, &ename, &grade, &dob); 
+//To take the input data from the user
+
+
+----------------------------------------------------------------------
+
+
+2) Delete commands :-
+
+drop table employee; // to delete the whole table from the database
+(we cannot retrieve the data when deleted..)
+
+delete from employee;  // To delete the whole entries all the rows in the table
+delete from employee where empno = 101;   // to delete a particular row
+(We can retrive, undo the data using commands)
+
+truncate employee  // delete only rows but we cannot retrieve using rollback command.
+
+
+----------------------------------------------------------------------------
+
+3) Update command :-  (Command used to update the particular values in the tables)
+
+
+CREATE TABLE employee
+(
+  empno NUMBER(6) PRIMARY KEY,
+  ename VARCHAR(30),
+  grade CHAR(2),
+  dob DATE CHECK(dob<'1-jan-2006') ,
+  deptno number(2)
+);
+
+update employee set email = 'abc@gmail.com' where empno = 101;   // updates the row where empno is 101
+update employee set email = 'aaa', first_name = 'Shreyash' where empno = 101;   
+update employee set grade = 'B'     // Updates all the rows in the grade column of the table employee
+
+
+---------------------------------------------------------------------------------
+4) Alter command :-  (Command used to add new columns to the existing table)
+
+
+create table student
+(
+stdno number(6) primary key,
+stdname varchar(30),
+stdperct float(9)
+);
+
+ insert into student values(101, 'Shreyash', 89);
+
+
+alter table student add email varchar2(20);                            //to add the column
+
+alter table student drop column email;                               // to delete the column
+desc student;
+
+alter table student modify (stdname varchar(25));                   // to modify the datatype of the column
+alter table student rename column stdname to stud_name;             // to rename the column
+ 
+alter table student add constraint stud_email_uk unique(email);       // we can add the constraint using alter command
+alter table student drop constraint stud_email_uk;                  // To delete the constraint
+
+
+alter table student disable constraint stud_email_uk;         // to disable a constraint without deleting it
+alter table student enable constraint stud_email_uk;          // to enable a disabled constraint
+
+-----------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------
+
+
+Data query language :-  username hr   pass srs
+
+
+
+1) desc 'table_name' :    to describe the table 
+
+2) select * from employee;   :  * to display all the data in the table
+
+3) select deptno "department_no", dname "department_name" from dept;   // allies are used to give a temporary name to the column
+
+4) 'where' clause   // used to specify a particular criteria
+
+   select empno, ename, deptno from emp where deptno <= 20;
+ 
+
+-------------------------------------------------------------------------------------  
+
+operators in sql :
+
+1) Arithmetic =         +  -  *  /  mod
+2) Relational =         <  <=  >  >=  ==  !=
+3) Logical    =         and  or  not
+4) Range      =         between   in   not betweeen   not in
+
+--------------------------------------------------------------------------------
+
+where clause :
+
+select first_name, salary from employees where employee_id < 1000;
+select first_name, salary from employees where employee_id > 500 and employee_id < 1000;
+select first_name, salary from employees where salary > 9000 and salary < 10000;
+
+
+---------------------------------------------------------------------------------
+
+order by clause :
+
+select first_name, salary from employees order by salary;
+select first_name, salary from employees order by salary desc;
+select first_name, salary from employees where salary between 9000 and 10000 order by salary;
+
+
+select first_name, salary, job_id from employees order by first_name;
+select first_name from employees order by first_name desc;
+select job_id, first_name from employees order by job_id, first_name;
+select job_id, first_name from employees order by job_id, first_name desc;
+select first_name from employees order by 1 desc;
+
+
+-----------------------------------------------------------------------------
+
+in operator   :
+
+select first_name, salary from employees where salary in (9000, 10000, 20000);
+select first_name, salary from employees where salary in (9000, 10000, 20000) order by salary;
+select first_name, salary from employees where salary in (9000, 10000, 20000) order by salary desc;
+
+
+-----------------------------------------------------------------------------
+
+distinct   // used to remove repeated values
+
+select dintinct job_id from employee;
+
+allies   // used to give a temporary name to the table
+eg.   e.employee_id etc..
+
+----------------------------------------------------------------------------------
+
+like operator  :   // The LIKE operator is used in a WHERE clause to search for a specified pattern in a column.
+
+
+
+select first_name, salary from employees where first_name like '___';
+
+select first_name, salary from employees where first_name like 'R%';
+
+select first_name, salary from employees where first_name like 'R%all';
+
+
+-------------------------------------------------------------------------------------
+
+null and not null 
+
+
+select * from departments where manager_id is null;
+select * from departments where manager_id is not null;
+
+
+------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------
+
+
+
+functions :-
+
+
+1)  NVL (used to fill null values in the program)
+
+
+select department_name, nvl(manager_id, 0) from departments;
+   
+--------------------------------
+
+2) dual ( dual is a dummy table in the sql)
+
+select sysdate from dual;
+
+-------------------------------
+
+3) round (rounding up the values up to the specified decimal )
+
+
+select round(99.9),round(99.4), round(99.62, 1), round(99.12, 2), round(99.12, -1) from dual;
+
+-------------------------------------
+
+4) trunc (truncate values to be specified decimal  )
+
+select trunc(99.345, 1) from dual;
+select trunc(99.345, 3) from dual;
+
+-------------------------------------
+
+5) concat ( used to join two or more words)
+
+
+select concat('Shreyash', 'java') "new_col" from dual;
+
+
+-----------------------------------------
+
+6) upper ( to convert the string into upper case)
+7) lower ( to convert the string into lower case)
+8) initcap ( to convert the first letter of string into initcap)
+
+
+select upper('shreyash'), lower('SHETE'), initcap('java') from dual;
+
+--------------------------------------------
+
+9) length (to find the length of the string)
+
+
+
+select length('shreyash'), upper('shreyash'), lower('SHETE'), initcap('java') from dual;
+
+---------------------------------------------
+
+10) trim ( to remove the spaces )
+11) ltrim ( to remove left space)
+12) rtrim (to remove right space)
+
+
+select length(trim('    shreyash   ')), upper('shreyash'), lower('SHETE'), initcap('java') from dual;
+select length(ltrim('    shreyash      ')), upper('shreyash'), lower('SHETE'), initcap('java') from dual;
+select length(rtrim('      shreyash   ')), upper('shreyash'), lower('SHETE'), initcap('java') from dual;
+ 
+
+----------------------------------------------
+
+13) to_char (converts date into required character format)
+
+
+select to_char(sysdate, 'day-mon-yy') from dual;
+
+select months_between(sysdate, '21-apr-2003') from dual;                   
+select sysdate - to_date('21-04-2003', 'dd-mm-yyyy') from dual;
+
+--------------------------------------------------
+
+14) sum, average, count, min, max 
+
+
+
+select avg(salary) "average_salary", sum(salary) "total_salary", min(salary) "Min", max(salary) "Max", count(salary) "no_of_salaries" from employees;
+
+
+
+------------------------------------------------------------------------------------
+Real time (basic website/ portfolio/ ecommerce website) problem statement ->
+
+------------------------------------------------------------------------------------
+
+
+15) Group by clause -->
+
+
+select job_id, count(*) from employees group by job_id;
+
+select salary, count(*) from employees group by salary;
+
+select job_id, min(max_salary), max(max_salary), sum(max_salary), avg(max_salary) from jobs group by job_id;
+
+select job_id, min(min_salary), max(min_salary), sum(min_salary), avg(min_salary) from jobs group by job_id order by job_id;
+
+select job_id, min(max_salary), max(max_salary), sum(max_salary), avg(max_salary) from jobs group by job_id having avg(max_salary) > 10000 order by job_id;
+
+
+(we need 'having' keyword to join group by and order by clause in given condition)
+
+-----------------------------------------------------------------------------------------
+
+
+16) Joints --> (when we have to fetch data from one or more table then we use joints..)
+
+
+types of joints :-
+
+i) inner join
+ii) left outer join
+iii) right outer join
+iv) full join
+v) self join
+vi) cross join
+
+
+
+
+
+select e.employee_id, e.first_name, d.department_name, d.department_id from employees e, departments d where e.department_id = d.department_id;
+
+
+i) Inner join =
+
+select e.employee_id, e.first_name, d.location_id, d.department_id from employees e, departments d where e.manager_id = d.manager_id;
+
+
+ii) Left outer join =
+
+select e.employee_id, e.first_name, d.department_name, d.department_id from employees e left outer join departments d on e.manager_id = d.manager_id;
+
+
+iii) Right outer join = 
+
+select e.employee_id, e.first_name, d.department_name, d.department_id from employees e right outer join departments d on e.manager_id = d.manager_id;
+
+
+iv) Full join = 
+
+select e.employee_id, e.first_name, d.department_name, d.department_id from employees e full join departments d on e.manager_id = d.manager_id;
+
+
+v) self join =
+
+select e1.employee_id, e2.first_name from employees e1, employees e2 where e1.employee_id = 194 and e1.manager_id = e2.manager_id;
+
+
+-----------------------------------------------------------------------------------
+
+inner join  =
+
+select r.region_name, r.region_id, c.country_name, c.country_id from regions r, countries c where r.region_id = c.region_id;
+
+
+Left outer join =
+
+select l.location_id, l.city, c.country_name from locations l left outer join countries c on l.country_id = c.country_id;
+
+
+Right outer join =
+
+select l.location_id, l.city, c.country_name from locations l right outer join countries c on l.country_id = c.country_id;
+
+
+Full join =
+
+select l.location_id, l.city, c.country_name from locations l full join countries c on l.country_id = c.country_id;
+
+
+Self join =
+
+select l1.postal_code, l2.street_address from locations l1, locations l2 where l1.location_id = l2.location_id;
+
+------------------------------------------------------------------------------------------------
+
+
+Nested queries ->
+
+(Output of the inner query becomes the input of the outer query)
+
+
+1)
+select employee_id, first_name, salary from employees where salary > (select avg(salary) from employees);
+
+
+2)
+select first_name from employees where department_id = (select department_id from departments where department_name = 'Shipping');
+
+
+
+     ---- Multi - row Subqueries ------
+3)
+select first_name from employees where department_id in ( select department_id from departments );
+
+select first_name from employees where salary >= (select avg(salary) from employees);
+
+
+-----------------------------------------------------------------------------------------------------
+
+
+*) View -->  ( Virtual table which do not have its own data)
+             ( It is just referring to the original table )
+             ( If we update the data in the view, it'll change the original data )
+             ( you can drop the view using "drop view v1;" )
+
+
+
+create or replace view v1 as
+select employee_id, first_name from employees where department_id in ( select department_id from departments );
+select * from v1;
+
+update v1 set first_name = 'lex' where employee_id = 102;
+update employees set first_name = 'ORS' where employee_id = 100;
+
+-----------
+
+create or replace view v2 as
+select employee_id, first_name, salary from employees where salary >= (select avg(salary) from employees);
+select * from v2;
+
+update v2 set first_name = 'Shreyash' where employee_id = 102;
+
+------------
+
+create or replace view employee_101 as
+select distinct job_id from employees;
+select * from employee_101;
+
+--------------
+
+create view emp5 as
+select * from employees where department_id = 50;
+select * from emp5;
+
+update emp5 set phone_number = '950' where first_name = 'Adam';
+
+--------------------------------------------------------------------------------------------
+
+
+*)  Index  -->  ( used to retrive the data fast / speedy searching )
+                ( its created internally so we cannot see it )
+                ( create an index if query statement retreives less than 15% of the rows in large table )
+                ( there is an index on primary column already )
+
+
+create index i1 on employees(first_name);
+
+--------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

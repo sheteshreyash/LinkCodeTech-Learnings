@@ -1,0 +1,291 @@
+create table Member
+    (
+      Member_id number(5) primary key,
+      Member_name varchar2(30),
+      Member_address varchar(50),
+      Acc_open_date date,
+      Membership_type varchar(20),
+      Fees_paid number(4),
+      Max_books_allowed number(2),
+      Penalty_Amount number(7)
+   );
+
+
+
+create table book
+(
+ Book_no number(6),
+ Book_name varchar(30),
+ Author_name varchar(30),
+ Cost number(7),
+ Category char(10)
+);
+
+
+
+create table Issue
+(
+  Lib_issue_id number(10),
+  Book_no number(6),
+  Member_id number(5),
+  Issue_date date,
+  Return_date date
+);
+
+-----------------------------------------------------
+
+desc Member;
+desc book;
+desc Issue;
+
+----------------------------------------------------
+
+drop table Member;
+
+------------------------------------------------------
+
+create table Member
+    (
+      Member_id number(5) primary key,
+      Member_name varchar2(30),
+      Member_address varchar(50),
+      Acc_open_date date,
+      Membership_type varchar(20),
+      Fees_paid number(6),
+      Max_books_allowed number(2),
+      Penalty_Amount number(7)
+   );
+
+-------------------------------------------------
+
+alter table Issue add Reference_of char(30);
+desc Issue;
+----------------------------------------------------
+
+alter table Issue drop column Reference_of;
+desc Issue;
+
+--------------------------------------------------
+
+alter table Issue rename to Lib_issue; 
+
+-------------------------------------------
+
+insert into Member values(1, 'Richa Sharma', 'Pune', '10-Dec-05', 'Lifetime', 2500, 5, 50); 
+insert into Member values(2, 'Garima Sen', 'Pune', sysdate, 'Annual', 1000, 3, null);
+
+---------------------------------------------------
+
+insert into Member values(3, 'Shreyash Shete', 'Mumbai', '23-oct-2003', 'Quarterly', 2000, 3, 150);
+insert into Member values(4, 'Sarvesh Desai', 'Mumbai', sysdate, 'Half yearly', 5000, 5, null);
+insert into Member values(5, 'Omkar Tikhe', 'Pune', '04-nov-2019', 'Lifetime', 2500, 5, 100);
+insert into Member values(6, 'Aparna Salunke', 'Mumbai', '06-mar-2020', 'Annual', 1000, 2, 900);
+insert into Member values(7, 'Mayur More', 'Pune', '21-apr-2018', 'Quarterly', 2000, 3, null);
+
+--------------------------------------------------------
+
+alter table Member modify (Member_name varchar(20)); 
+
+----------------------------------------------------------
+
+ insert into Member values(8, 'Rajesh Bhojne', 'Mumbai', '06-may-2021', 'Annual', 1000, 10, 400);
+
+-----------------------------------------------------------
+
+create table Member101
+    (
+      Member_id number(5) primary key,
+      Member_name varchar2(30),
+      Member_address varchar(50),
+      Acc_open_date date,
+      Membership_type varchar(20),
+      Fees_paid number(6),
+      Max_books_allowed number(2),
+      Penalty_Amount number(7)
+   );
+
+--------------------------------------------------------------
+
+create table Member101
+as select * from Member
+where Membership_type = 'Lifetime';
+
+----------------------------------------------------------------
+
+alter table Member modify (Max_books_allowed number(2) check(Max_books_allowed<100));
+alter table Member modify (Penalty_Amount number(7) check(Penalty_Amount < 1000));
+alter table Member add constraint members_books unique(Max_books_allowed);  //doubt
+
+--------------------------------------------------------------------
+
+drop table book;
+
+--------------------------------------
+
+create table Books
+(
+ Book_no number(6) primary key,
+ Book_name varchar(30) not null,
+ Author_name varchar(30),
+ Cost number(7),
+ Category char(10)
+);
+
+------------------------------------------
+
+insert into Books values(101, 'Let us C', 'Denis Ritchie', 450, 'Database');
+insert into Books values(102, 'Oracle - Complete Ref', 'Loni', 550, 'System');
+insert into Books values(103, 'Mastering SQL', 'Loni', 250, 'Database');
+insert into Books values(104, 'PL SQL-Ref', 'Loni', 750, 'Database');
+
+--------------------------------------------------------
+
+insert into Books(Book_no, Book_name, Author_name, Cost, Category) values(&Book_no, &Book_name, &Author_name, &Cost, &Category); 
+
+-------------------------------------------------------------------
+
+create table Books101
+as select * from Books;
+
+-----------------------------------------------
+
+insert into Books101
+select * from Books;
+----------------------------
+
+save Member;
+save Member101;
+save Books;
+save Book101;
+
+-------------------------
+
+insert into Books values(106, 'National Geographic', 'Adis Scott', 1000, 'Science');
+
+-------------------------------------------------
+
+delete from Books where Book_no = 101;
+rollback;
+
+------------------------------------
+
+update Books set cost = 300, Category = 'RDBMS' where Book_no = 103;
+
+----------------------------------------
+
+create table Issue
+(
+  Lib_issue_id number(10) not null,
+  Book_no number(6),
+  Member_id number(5),
+  Issue_date date,
+  Return_date date,
+  constraint lb_pk primary key (Lib_issue_id)
+);
+
+
+alter table Issue
+add foreign key (Book_no) references Issue(Lib_issue_id);
+
+alter table Issue
+add foreign key (Member_id) references Issue(Lib_issue_id);
+
+update Issue set Issue_date = 'Issue_date < Return_date';
+
+
+alter table Issue add constraint Lib_issue_uk unique(Book_no);
+alter table Issue add constraint Library_issue_uk unique(Member_id);
+
+
+--------------------------------------
+
+insert into Issue values(7001, 101, 1, '10-Dec-06', null);
+insert into Issue values(7002, 102, 2, '25-Dec-06', null);
+insert into Issue values(7003, 104, 1, '15-Jan-06', null);
+insert into Issue values(7004, 101, 1, '04-Jul-06', null);
+insert into Issue values(7005, 104, 2, '15-Nov-06', null);
+insert into Issue values(7006, 101, 3, '18-Feb-06', null);
+
+
+
+---------------------------------------------------
+
+alter table Issue disable constraint Lib_issue_uk;
+alter table Issue disable constraint Library_issue_uk;
+
+-----------------------------------------------------
+
+delete from Issue where Member_id = 1;
+
+------------------------------------------------
+
+delete from Issue where Issue_date = '10-Dec-06';
+
+--------------------------------------------------------
+
+alter table Issue drop column Member_id;
+desc Issue;
+
+--------------------------------------------------------
+
+alter table Issue enable constraint Lib_issue_uk;
+alter table Issue enable constraint Library_issue_uk;
+
+-------------------------------------------------------
+
+truncate table Issue;
+
+-----------------------------------
+
+update Issue set Return_date = '19-Jul-06' where Lib_issue_id = 7004;
+update Issue set Return_date = '30-Nov-06' where Lib_issue_id = 7005;
+
+------------------------------------------
+
+update Member set Penalty_amount = 100 where Member_id = 2; 
+
+--------------------------------------------------
+
+delete from Issue;
+
+--------------------------------------------
+
+create sequence no_seq
+start with 100
+increment by 2
+minvalue 100
+maxvalue 200
+cycle;
+
+drop sequence no_seq;
+
+---------------------------------------------------
+
+create sequence book_seq
+start with 101
+increment by 1
+maxvalue 1000
+nocycle
+cache 10;
+
+----------------------------------------------
+
+create sequence member_seq
+start with 1
+increment by 1
+maxvalue 100
+nocycle
+cache 10;
+
+----------------------------------------------
+
+drop sequence book_seq;
+drop sequence member_seq;
+
+
+============-End of the queries==================
+
+
+
+
+

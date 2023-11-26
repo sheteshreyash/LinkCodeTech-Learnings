@@ -1,0 +1,148 @@
+create table Member 
+(
+   member_id number(5) primary key,
+   member_name varchar2(30),
+   member_address varchar2(50),
+   acc_open_date date,
+   membership_type varchar2(20),
+   fees_paid number(4),
+   max_books_allowed number(2),
+   penalty_amount number(7,2) 
+);
+
+--------------------------------------------
+
+create table Books 
+(
+  book_no number(6),
+  book_name varchar2(30),
+  author_name varchar2(30),
+  cost number(7,2),
+  category char(10)
+);
+
+------------------------------------------------
+
+create table Issue
+(
+  lib_issue_id number(10),
+  book_no number(6),
+  member_id number(5),
+  issue_date date,
+  return_date date 
+);
+
+-------------------------------------------------
+
+select * from Books where author_name = 'Loni' and cost < 600;
+
+--------------------------------------------------------
+
+select * from Issue where return_date is null;
+select * from Issue where return_date is not null;
+
+--------------------------------------------------
+
+UPDATE ISSUE SET RETURN_DATE='31-DEC-06' WHERE LIB_ISSUE_ID=7001;
+UPDATE ISSUE SET RETURN_DATE='31-DEC-06' WHERE LIB_ISSUE_ID=7002;
+UPDATE ISSUE SET RETURN_DATE='31-DEC-06' WHERE LIB_ISSUE_ID=7003;
+UPDATE ISSUE SET RETURN_DATE='31-DEC-06' WHERE LIB_ISSUE_ID=7004;
+
+------------------------------------------------------
+
+SELECT * FROM ISSUE WHERE (RETURN_DATE)-(ISSUE_DATE)>30; 
+or
+select * from Issue where( return_date - issue_date ) > 30;
+
+---------------------------------------------------------
+
+SELECT * FROM Books WHERE cost BETWEEN 500 AND 750;
+select * from Books where cost between 500 and 750;
+
+------------------------------------------------------
+
+SELECT BOOK_NAME FROM BOOKS WHERE (COST BETWEEN 500 AND 750);
+
+--------------------------------------------------------
+
+SELECT * FROM BOOKS WHERE category in ('Science','Database', 'Fiction','Management');
+
+------------------------------------------------------
+
+SELECT * FROM Member ORDER BY penalty_amount DESC;
+
+-----------------------------------------------------
+
+select * from Books order by category asc,cost desc;
+
+---------------------------------------------------------
+
+select * from Books where book_name like'%SQL%';
+
+--------------------------------------------------
+
+SELECT * FROM MEMBER where MEMBER_NAME like'R%'OR MEMBER_NAME LIKE'G%' AND MEMBER_NAME LIKE '%I%';
+
+----------------------------------------------------
+
+select initcap(author_name),upper(book_name) from Books order by book_name desc;
+
+---------------------------------------------------
+
+SELECT TO_CHAR(ISSUE_date,'DY/MON/DD/YYYY'),TO_CHAR(RETURN_DATE,'DY/MON/DD/YYYY')FROM ISSUE WHERE LIB_ISSUE_ID=7001;
+
+-------------------------------------------------
+
+select category,decode(category,'database','D','rdbms','R','science','S','others','O') as types from Books;
+
+---------------------------------------------------
+
+SELECT MEMBER_NAME FROM MEMBER WHERE TO_CHAR(ACC_OPEN_DATE,'YY') >= 06;
+
+------------------------------------------------------
+
+SELECT LIB_ISSUE_ID,ISSUE_DATE,RETURN_DATE,(RETURN_DATE - ISSUE_DATE) AS NUMBER_OF_DAYS FROM ISSUE;
+
+-----------------------------------------------------
+
+ select * from Issue order by issue_date ;
+
+-----------------------------------------------
+
+SELECT SUM(MAX_BOOKS_ALLOWED) FROM MEMBER WHERE MEMBER_ID=1 ;
+
+----------------------------------------------------------
+
+select sum(penalty_amount) from Member ;
+
+--------------------------------------------------------
+
+SELECT COUNT(MEMBER_NAME) FROM MEMBER;
+
+------------------------------------------------------
+
+SELECT COUNT(LIB_ISSUE_ID) FROM ISSUE;
+
+-------------------------------------------
+
+SELECT AVG(FEES_PAID) FROM MEMBER;
+
+--------------------------------------
+
+SELECT ROUND((RETURN_DATE-ISSUE_DATE)/30) FROM ISSUE;
+
+--------------------------------------------------
+
+SELECT LENGTH(MEMBER_NAME)AS LENGTH_OF_NAME FROM MEMBER; \
+
+-------------------------------------------------------
+
+SELECT SUBSTR(MEMBERSHIP_TYPE,1,5) FROM MEMBER;
+
+-------------------------------------------------------
+
+SELECT LAST_DAY(ISSUE_DATE) FROM ISSUE;
+
+
+
+===========End of the queries===============================

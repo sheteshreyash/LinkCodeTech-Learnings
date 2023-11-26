@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Addition</title>
+        </head>
+
+        <body>
+        num1 : <input id="num1" type = "number"><br>
+        num2 : <input id = "num2" type = "number"><br>
+        <button onclick = "add()"> Add </button>
+        <button onclick="sub()"> Subtract</button>
+        <button onclick="mul()"> Multiplication</button>
+        <div id="ans" Your Answer goes here></div>
+        </body>
+
+        <script>
+        var num1Elem = document.getElementById("num1");
+        var num2Elem = document.getElementById("num2");
+        var ansElem = document.getElementById("ans");
+
+            function add() {
+                console.log("Hello World");
+                var n1 = parseInt(num1Elem.value);
+                var n2 = parseInt(num2Elem.value);
+                var add = n1 + n2;
+                console.log(add);
+                ansElem.innerText = "Answer is : " + add
+            }
+
+            function sub() {
+                console.log("Hello World in subtraction");
+                var n1 = parseInt(num1Elem.value);
+                var n2 = parseInt(num2Elem.value);
+                var sub = n1 - n2;
+                console.log(sub);
+                ansElem.innerText = "Answer is : " + sub
+            }
+
+            function mul() {
+                console.log("Hello World in subtraction");
+                var n1 = parseInt(num1Elem.value);
+                var n2 = parseInt(num2Elem.value);
+                var mul = n1 * n2;
+                console.log(mul);
+                ansElem.innerText = "Answer is : " + mul
+            }
+
+
+
+        </script>
+</html>

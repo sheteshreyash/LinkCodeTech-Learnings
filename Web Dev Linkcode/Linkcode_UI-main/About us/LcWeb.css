@@ -1,0 +1,32 @@
+/*------------------About_Us-----------------*/
+#About_us{
+    background-color: white !important;
+    padding-top: 5%;
+}
+.vector-1
+{
+    width:85%;
+}
+.About_us{
+    font-size: 30px;
+    font: weight 600px;
+    margin-top: 80px;
+    color: #00BFFF;
+}
+/*-----------------Why Linkcode --------------*/
+
+.vector-2
+{
+    width:95%;
+    margin-top: 0%;
+}
+.Why_Linkcode{
+    font-size: 30px;
+    font: weight 600px;
+    margin-top: 80px;
+    color: #00BFFF;
+}
+.Software{
+    font-size: 30px;
+    font-weight: 600px;
+}

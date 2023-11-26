@@ -1,0 +1,43 @@
+java notes 13-7-22
+
+function overloading means we can use same function name more than once for a different implementation.
+but, by doing a function overloading, function signature must be different
+
+fucntion signatures are :
+1) type of parameter = void display(int, int), void display(float, float)
+2) no of parameter = void display(int), void display(int, int)
+3) sequence of parameter = void display(int, float), void display(float, int)
+
+question :
+greater between two int, two float and two char
+create two classes
+
+class greaterDate {
+// code
+}
+
+
+
+* -----------Variable Arguments--------------*
+- var args means variable arguments.
+- We can use same function name for different no of arguments of same line 
+- eg.
+public static void display(int ...x) {
+System.out.println("
+}
+
+( here this 3 dots means array. we can call same function for zero argument or one int argument or 2 int argument or n int argument )
+
+- In one function we can have only one var args variable.
+- if you want to pass two differnt arguments 
+- eg. public static void display(float a, int ...x) {
+}
+
+( here we can pass one float zero int, or one float one int, or one float n int ) ie float is mandatory
+
+*---------------Static Variables------------------*
+- static variables allocates the memory only once.
+
+
+
+

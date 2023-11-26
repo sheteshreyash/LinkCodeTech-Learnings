@@ -1,0 +1,163 @@
+(Shreyash)
+
+
+
+What are SDLC models ? (Software Development Life cycle)
+
+The Software Development Life Cycle (SDLC) refers to a methodology 
+with clearly defined processes for creating high-quality software.
+
+SDLC provides a well-structured flow of phases that help an organization 
+to quickly produce high-quality software
+which is well-tested and ready for production use.
+
+There are 7 phases in a software development :
+
+1) Requirement analysis =
+  - There are 3 steps in requirement analysis 
+    1) Requirement gathering
+    2) Analyzing the collected requirements
+    3) documenting the requirements
+
+  - It is a crucial step in SDLC as it resonates with the acceptance testing, 
+   critical for product acceptance by customers
+
+
+2) Planning =
+   In the Planning phase, project leaders evaluate the terms of the project. 
+   This includes calculating labor and material costs, creating a timetable with target goals, 
+   and creating the project’s teams and leadership structure
+
+
+3) Software designing and prototyping =
+   this phase contains 6 steps :
+       1) architecture
+       2) user interface
+       3) platforms
+       4) programming
+       5) Communications
+       6) security
+
+
+4) Software development =
+   the actual step in the writing of the program and most crucial one.
+
+
+5) Testing =
+   The testing phase helps reduce the number of bugs and glitches that users encounter. 
+   This leads to a higher user satisfaction and a better usage rate.
+
+
+6) Deployment =
+   In the deployment phase, the application is made available to users
+
+   Deployment can also be complex. Upgrading a company-wide database to a newly-developed application is one example. 
+   Because there are several other systems used by the database, 
+   integrating the upgrade can take more time and effort.
+
+
+7) Operations and Maintenance =
+   At this point, the development cycle is almost finished.
+   In addition to bug fixes, models like Iterative development plan additional features in future releases. 
+   For each new release, a new Development Cycle can be launched.
+
+
+link for the article :
+https://stackify.com/what-is-sdlc/
+
+
+------------------------------------------------------------------
+
+(Rutuja and Alisha)
+
+
+SDLC models in short :
+
+1) Waterfall model :-
+
+   Classical waterfall -
+   It is a Basic, Rigid and Inflexible and not used for real project.
+   no parallelism is used in this model.
+   basically not any interaction from the user in the middle stages of the model.
+
+   Iterative Waterfall -
+   after every stage the feedback is given to the previous stages.
+   user problem is well understood
+
+2) V- shaped model -
+   Extension of waterfall model, methodology is checked at each stage.
+
+
+3) Prototype model -
+   User requirements are not clear to the user itself, no early lock on requirements.
+   resuability and high user involvement.
+
+4) Incremental model -
+   Module by module delivery.
+   Easy to test, easy to debug
+
+5) Evolutionary model -
+   similar to the incremental model 
+   difference is the incremental model is used for small projects and 
+   evolutionary model is used for large projects for longer periods.
+
+6) RAD (Rapid Application development) -
+   Time and cost constraint.
+   user interaction at all levels. 
+   reusability
+
+7) Spiral model -
+   Consist of the risk analysis of the project
+   not for small projects.
+   less experienced developers can work in this model
+
+8)  Agile model -
+    flexible, advanced technology
+    process divided into sprints. 
+    works parallelism.
+    Every developer is working at same level so that they can share their ideas freely
+
+
+
+(link to the article : https://www.atlassian.com/agile#:~:text=Agile%20is%20an%20iterative%20approach,small%2C%20but%20consumable%2C%20increments.)
+
+---------------------------------------------------------------------------
+
+
+what issues does agile help us to resolve ?
+
+- to overcome Waterfall model (short explaination of waterfall model to be given)
+
+
+----------------------------------------------------------------------------------
+
+what is agile ?
+
+Agile is an iterative approach to project management and software development 
+that helps teams deliver value to their customers faster and with fewer headaches
+
+------------------------------------------------------------------------
+
+why to choose agile ?
+
+Well executed Agile software development methodology helps teams significantly improve 
+the quality of their software at each release. 
+
+Not only that, it allows teams to adapt to change quickly.
+
+The Agile process consists of short, time-boxed iterations known as sprints. 
+Each sprint results in a working product
+
+----------------------------------------------------------
+
+Agile methodology consists 4 phases
+
+   
+    plan
+    implement
+    test
+    review
+
+
+
+=======================================================================

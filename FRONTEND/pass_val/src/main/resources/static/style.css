@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* .navbar{
+  background-color: #080D85;
+  height: 60px;  
+} */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family: 'poppins';
+  background-color: #ECEDEF;
+  color: #fff;
+  line-height: 1.8;
+  background: #fff no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+} 
+
+
+a{
+  text-decoration: none;
+}
+
+#container{
+  margin: 30px auto;
+  max-width: 430px;
+  padding: 20px;
+  border-radius: 20px;  
+  background: transparent;
+}
+
+.form-wrap{
+  background-color: #fff;
+  padding: 15px 25px;
+  color: #333;
+  border: 1px solid rgb(29, 174, 232);
+  border-top: 4px solid rgb(29, 174, 232);
+  border-radius: 05px;
+}
+
+.form-wrap h1,
+.form-wrap p{
+  text-align: center;
+}
+
+.form-wrap .form-group{
+  margin-top: 2px;
+  
+}
+
+.form-wrap .form-group label{
+  display: block;
+  color: #666;
+}
+
+.form-wrap .form-group input{
+  width: 100%;
+  padding: 10px;
+  border: #ddd 1px solid;
+  border-radius: 5px;
+}
+
+.form-wrap button{
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: rgb(29, 174, 232);
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgb(29, 174, 232);
+  font-family: 'poppins';
+  font-size: 15px;
+  transition: 1s;
+}
+
+.form-wrap button:hover{
+  background-color: #080D85;
+  transition: 1s;
+}
+
+.form-wrap .bottom-text{
+  font-size: 13px;
+  margin-top: 20px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
+}
+
+footer a {
+  color: #080D85
+}
+.social-login
+{
+    margin-top: 20px;
+    border-bottom: 2px solid #002333;
+}
+.social-item
+{
+    display: flex;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    height: 45px;
+    align-items: center;
+    border: 1px solid rgb(0, 104, 131);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+.social-item .icon
+{
+    flex-basis: 20%;
+}
+.social-item .icon img
+{
+    height: 30px;
+    width: 30px;
+}
+.social-handle
+{
+    flex-basis: 80%;
+}
+
+.invalid-feedback{
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+}

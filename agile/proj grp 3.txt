@@ -1,0 +1,182 @@
+CHAPTER - 1 ------>
+
+Introduction :
+
+The Project "Online Laboratory Management system" is an Automated full stack web project
+for E-lab Management. It eases the tasks of the user/patient as well as lab administrator and 
+other staff of any Diagnostic centre.
+
+The main objective of this project is to provide the solution for an medical laboratory 
+to provide the facilities available online as a part of E-Lab (portal for equipped for conducting 
+tests suggested by medical experts). This software also helps the administrator and instructor(s) to maintain
+proper documentation of the computing systems.
+
+This software is a web-based application and can be hosted on the internet. It also provides a clean and
+user-friendly interface to the users/patients.
+
+---------------------------------------------------------------------------------
+
+Purpose :
+
+The purpose of this project is to provide the solution of a local medical test laboratories 
+to help in monitoring it's online services and provides it's existence globally through internet.
+
+---------------------------------------------------------------------------------------- 
+
+
+Need/motivation :
+
+We visited a local medical test laboratory/diagnostic centre and asked them about if they have their
+own Website/software online which keeps tracks of their individual users/patients and provide them
+an option to book a test slot online or atleast book an appointment if their phone services are busy 
+are busy in some cases.
+It is also difficult for the administrator to integrate entire information of all the patients/users data o
+who did their medical tests there. Our software solves these problems
+
+
+=====================================================================
+
+
+Technical Requirements :
+
+1)	Functional Requirements ->
+-	It Should provide the display available services in the diagnostic centre without any of the clashes between the day, time and all available services must be visible to all.
+-	It should add all the services/tests selected by the registered user in his account portal.
+-	It should generate a report about the registered complaint to the admin and response report to the user who has submitted his queries (via email).
+-	User must be able to select all the tests/services he wants to take from the E-lab software.
+-	Secure registration and profile management facilities for different users.
+-	It should generate alerts via SMS and Email.
+
+2)	Non-Functional Requirements ->
+
+Safety Requirements
+If there is extensive damage to a wide portion of the database due to catastrophic failure, such as a disk crash, the recovery method restores a past copy of the database that was backed up to archival storage 
+
+Security Requirements
+Security systems need database storage just like many other applications. However, the special requirements of the security market mean that vendors must choose their database partner carefully.
+
+•	Hardware Requirements :
+1.	A recent model of computer with at least 4gb of ram is sufficient for web full stack project.  (8gb is recommended)
+2.	A dual-core processor ( quad-core is recommended for better performance )
+3.	Solid-State Drive (SSD) is recommended for storage ( minimum 256 gb for faster computations and efficient working).
+
+•	Software Requirements :
+1.	HTML, CSS, JavaScript  as front-end languages (for dynamic = thyme Leafe template or JSP) and React. Angular as frameworks.
+2.	Reference of bootstrap or tailwind for front-end development.
+3.	Java(Spring boot) for backend development.
+4.	MySQL as a database.
+
+
+
+-----------------------------------------------------------------
+
+api architecture : completed
+
+uml class diagrams :  completed
+
+ER diagrams : completed on paper
+
+DB Schema :  completed
+
+Web view diagram : completed on paper 
+
+Workflow doc/ flowchart  : completed on paper
+
+use case diagram : completed on paper
+
+sequence diagram : completed on paper
+
+===================================================================================
+====================================================================================
+
+
+
+1) User Registration
+
+
+name
+email/mob
+password
+dob
+
+------------------------
+
+
+2) login
+
+email/mob 
+password
+
+----------------------------------------
+
+
+3) forgot password 
+
+otp verification 
+
+-------------------------------------
+
+4) User profile/dashboard
+
+
+available slots
+booked slots 
+add to cart
+
+---------------------------
+
+5) user logout 
+
+=======================================================
+
+
+Admin Side :
+
+1) Admin login =-
+
+admin username
+admin pass
+
+
+2) Admin DAshboard
+
+-)  User list
+-)  admin confirmation message
+
+
+3) admin logout
+
+
+====================================================================
+
+
+All webpages in our website :
+
+1) User/patient registration page
+2) Login page
+3) CT scan page (with info regarding it + image + book a test option)
+4) Sonography page (with info regarding it + image + book a test option)
+5) Digital X-ray page(with info regarding it + image + book a test option)
+6) Blood test page (with info regarding it + image + book a test option)
+7) about us page (additional info regarding our laboratory)
+8) User Profile/ User dashboard page  ( we should provide additional info to fill for the user such as blood group/age/other personal info)
+( we should provide "choose a test slot  ----->  Redirect to our services page" and "select + book a test" in the user profile page )
+
+9) Home page ( All our services pages links eg. sonography, Digital-Xray, Blood test ) 
+             (User Login/registration option)
+             (All additional info such as social media links and feedback option)
+
+10) Admin Login Page
+11) Admin Dashboard page (Admin can view all the users info on the booked tests) 
+                         (admin has authentication on tests bookings by users/ slots confirmation)
+                         (admin can add slots only for the registered users, according to the time and schedule of the laboratory)
+                         (admin can't delete or edit user data but can edit other info like test info, test slots) 
+
+
+----------------------------------------------------------------------------------------
+
+
+
+
+   
+

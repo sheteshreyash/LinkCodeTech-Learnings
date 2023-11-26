@@ -1,0 +1,167 @@
+select * from Member;
+select * from Books;
+select * from Issue;
+
+
+(Created tables from previous assignments)
+
+---------------------------------------------------
+
+select * from Issue order by (return_date - issue_date) desc;
+
+--------------------------------------------------
+
+select category, count(*) from Books group by category;
+
+----------------------------------------------------
+
+select penalty_amount, sum(penalty_amount), avg(penalty_amount), max(penalty_amount), min(penalty_amount) from Member group by penalty_amount;
+
+---------------------------------------------------------
+
+select member_id, max_books_allowed from Member where (max_books_allowed >= 2);
+
+----------------------------------------------------------
+
+q 23 
+
+ SELECT * FROM 
+  (
+    SELECT *FROM Books
+    ORDER BY cost desc
+  )
+WHERE rownum <= 3
+ORDER BY cost;
+
+
+--------------------------------------------------------------
+
+q 24
+
+SELECT SUM(B.COST) AS TOTALCOST FROM ISSUE I, Books B WHERE B.BOOK_NO =I.BOOK_NO AND I.RETURN_DATE IS NULL;
+
+--------------------------------------------------------------------
+
+q 25
+
+SELECT * FROM Books where count(book_no) = MAX(book_no) GROUP BY book_no;
+
+
+
+----------------------------------------------------------------------
+
+q 26 
+
+select * from Member where membership_type like 'Lifetime%' ;
+
+---------------------------------------------------------------------
+ q 27
+
+SELECT membership_type, COUNT(*) FROM Member group by membership_type;
+
+-------------------------------------------------------------------
+q 30
+
+SELECT * FROM ( SELECT * FROM Issue) WHERE rownum <= 5;
+----------------------------------------------------------------------
+
+IMP :->
+
+create table Issue
+(
+  Lib_issue_id number(10) primary key,
+  Book_no number(6) references Books(Book_no),
+  Member_id number(5) references Member(Member_id),
+  Issue_date date,
+  Return_date date
+);
+
+
+----------------------------------------------
+
+
+q 9 (correction)
+
+SELECT * FROM ( SELECT *FROM Books B, Issue I, Member M  WHERE B.Book_no=I.Book_no AND M.Member_id=I.Member_id GROUP BY M.Member_id ORDER BY COUNT(B.Book_no)desc ) ORDER BY COUNT(B.Book_no);
+
+
+-------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+A) Find out top 5 members, with their membership type, who have issued books maximum number of times.
+
+SELECT  *FROM 
+    (
+    SELECT *FROM Books B, Issue I, Member M  WHERE B.Book_No=I.Book_No AND M.Member_id=I.Member_id GROUP BY M.Member_id
+    ORDER BY COUNT(B.Book_No)desc
+    )
+WHERE rownum <= 5
+ORDER BY COUNT(B.Book_No);
+
+B)    List top 3 members from each member type who have issued books maximum number of times.
+
+SELECT  *FROM 
+    (
+    SELECT *FROM Books B, Issue I, Member M  WHERE B.Book_No=I.Book_No AND M.Member_id=I.Member_id GROUP BY M.Member_id
+    ORDER BY COUNT(B.Book_No)desc
+    )
+WHERE rownum <= 5
+ORDER BY COUNT(B.Book_No);
+
+C)   List first 5 members who had joined library.
+
+SELECT  *FROM 
+    (
+    SELECT *FROM Issues
+    
+    )
+WHERE rownum <= 5.
+
+
+
+

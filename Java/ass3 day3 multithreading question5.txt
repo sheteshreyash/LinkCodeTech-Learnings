@@ -1,0 +1,100 @@
+Introduction
+The main objective of the java program is to create two files to read two files by using Threads. One is to read files using implementing the Runnable interface and the other is to test the class with the sample files. The java files are ThreadReader.java and MainThread.java 
+
+The ThreadReader.java class implements the Runnable interface and override the run method. The constructor takes a file name as an input file name. The run method will open the file for reading and display the content of the file. 
+
+In the main method of the MainThread.java, create two objects of the ThreadReader class and pass the name of the files as arguments. Then call the run method to start reading the sample files, sample1.txt and sample2.txt
+
+ 
+
+Step 2
+ThreadReader.java class source code
+
+//ThreadReader.java
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+//Java class, ThreadReader that implements the Runnable interface
+public class ThreadReader implements Runnable
+{
+ private String filename;
+ //Constructor that takes filename as input string
+ public ThreadReader(String filename)
+ {
+  this.filename=filename;
+ }
+ /*Override the run method that opens file 
+  * and read the file data line by line and with some
+  * sample randome sleep time */
+ public void run()
+ {
+  Scanner filereader=null;
+  try 
+  {
+   //Open file stream Scanner object to read filename
+   filereader=new Scanner(new File(filename));
+   while(filereader.hasNextLine())
+   {
+    //print the name of the file 
+    System.out.println("File Name: "+filename);
+    //Call Sleep method to sleep for a random time
+    //for every line to display 
+    Thread.sleep((long) (Math.random()*1000));
+    //display the text of file 
+    System.out.println(filereader.nextLine());
+   }
+   //close the file filereader object
+   filereader.close();
+  } 
+  catch (FileNotFoundException e) 
+  {
+   System.out.println(e.getMessage());
+  } 
+  catch (InterruptedException e) 
+  {
+   e.printStackTrace();
+  }
+ }
+}
+
+Step 3
+MainThread.java source code
+
+//MainThread.java
+public class MainThread 
+{
+ public static void main(String[] args) 
+ {
+  //Set two file names as string variables
+  String file1="sample1.txt";
+  String file2="sample2.txt";
+  //Create an object of the ThreadReader class with file1
+  ThreadReader t1 = new ThreadReader(file1);
+  //Create an object of the ThreadReader class with file2
+  ThreadReader t2= new ThreadReader(file2);
+  //call run method to start the thread t1
+  t1.run();
+  //call run method to start the thread t2
+  t2.run();
+ } //end of the method
+}//end of the class,MainThread
+
+Step 4
+Sample text files
+
+sample1.txt
+
+Lorem Ipsum is simply dummy text of the printing 
+and typesetting industry. Lorem Ipsum has been the industry's 
+standard dummy text ever since the 1500s, when an unknown 
+printer took a galley of type and scrambled it to make a type 
+specimen book. It has survived not only five centuries.
+
+sample2.txt
+
+Contrary to popular belief, Lorem Ipsum 
+is not simply random text. It has roots in 
+a piece of classical Latin literature from 
+45 BC, making it over 2000 years old. 
+Richard McClintock, a Latin professor at 
+Hampden-Sydney College in Virginia

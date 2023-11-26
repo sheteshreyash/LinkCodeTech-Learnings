@@ -1,0 +1,149 @@
+.google-map-section .google-map iframe#gmap_canvas {
+    position: relative;
+    width: 100%;
+    height: 550px;
+}
+
+.wpcf7-not-valid-tip {
+    color: gray;
+}
+
+/** cta-section **/
+
+.cta-section {
+    position: relative;
+}
+
+.cta-section .inner-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background: #06194b;
+    border-radius: 20px;
+    padding: 146px 100px 100px 100px;
+    clip-path: polygon(0% 0%, 100% 15%, 100% 100%, 0% 100%, 0% 0%);
+    z-index: 1;
+    margin-bottom: -150px;
+}
+
+.cta-section .inner-box .text h2 {
+    font-size: 42px;
+    line-height: 48px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cta-section .inner-box .btn-box {
+    position: relative;
+    margin-top: 15px;
+}
+
+.cta-section .inner-box .btn-box .theme-btn-one {
+    padding: 19px 56px 20px 56px;
+}
+
+.cta-section .pattern-layer .pattern-1 {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    height: 100%;
+    width: 445px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cta-section .pattern-layer .pattern-2 {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    height: 100%;
+    width: 556px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/** cta-style-two **/
+
+.cta-style-two {
+    position: relative;
+    padding: 95px 0px 100px 0px;
+}
+
+.cta-style-two .text h2 {
+    display: block;
+    font-size: 42px;
+    line-height: 48px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cta-style-two .btn-box {
+    position: relative;
+    margin-top: 21px;
+}
+
+.cta-style-two .btn-box .banner-btn-two {
+    padding: 19px 51px 20px 51px;
+    border-radius: 35px;
+}
+
+.cta-style-two .pattern-layer .pattern-1 {
+    position: absolute;
+    left: 125px;
+    bottom: 0px;
+    height: 100%;
+    width: 616px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.cta-style-two .pattern-layer .pattern-2 {
+    position: absolute;
+    top: 0px;
+    right: 200px;
+    width: 532px;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#tribe-events-pg-template,
+.tribe-events-pg-template {
+    max-width: 100%;
+}
+
+#tribe-events-pg-template {
+    padding: 0;
+}
+
+.event-details-content .content-two .image-box .image {
+    margin-bottom: 20px !important;
+}
+
+.events-sidebar .map-inner iframe {
+    width: 100%;
+    height: 330px;
+    border-radius: 30px;
+}
+
+.event-details-content .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+    padding: 0px;
+}
+
+.events-page.events-style-two {
+    position: relative;
+    padding: 143px 0px 120px 0px;
+}
+
+.events-page.event-block-one .inner-box {
+    margin-bottom: 30px;
+}
+
+.events-page.events-style-two .pattern-layer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 917px;
+    height: 578px;
+    background-repeat: no-repeat;
+}

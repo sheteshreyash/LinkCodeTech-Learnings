@@ -1,0 +1,145 @@
+/** future-member **/
+
+.future-member {
+    position: relative;
+}
+
+.future-member .details-content .text {
+    position: relative;
+    display: block;
+}
+
+.future-member .details-content .text h3 {
+    display: block;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 700;
+    margin-bottom: 27px;
+    padding-top: 0;
+}
+
+.future-member .details-content .text p {
+    margin-bottom: 26px;
+}
+
+.future-member .details-content .text p:last-child {
+    margin-bottom: 0px;
+}
+
+.future-member .details-content .image {
+    position: relative;
+    display: block;
+    border-radius: 20px;
+}
+
+.future-member .details-content .image img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.future-member .details-content .content-one .image {
+    position: relative;
+    margin: 63px 0px 64px 0px !important;
+}
+
+.future-member .details-content .content-one .image .shape {
+    position: absolute;
+    left: -60px;
+    bottom: -25px;
+    width: 123px;
+    height: 123px;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.future-member .details-content .content-two .image-box {
+    position: relative;
+    margin: 0px -5px;
+}
+
+.future-member .details-content .content-two .image-box .image {
+    position: relative;
+    float: left;
+    padding: 0px 5px;
+    width: 33.333%;
+}
+
+.future-member .details-content .content-two .text {
+    margin-bottom: 67px;
+}
+
+.future-member .details-content .content-two {
+    margin-bottom: 63px;
+}
+
+.future-member .details-content .content-three .text {
+    margin-bottom: 56px;
+}
+
+.future-member .details-content .default-form .form-group.message-btn {
+    padding-top: 7px;
+}
+
+.future-member .sidebar-content .info-box {
+    position: relative;
+    display: block;
+    background: #e9f8f8;
+    padding: 44px 30px 43px 40px;
+    border-radius: 20px;
+}
+
+.future-member .sidebar-content .info-box h4 {
+    margin-bottom: 18px;
+}
+
+.future-member .sidebar-content .info-box p {
+    color: #142441;
+}
+
+.future-member .sidebar-content .info-box .address {
+    margin-bottom: 37px;
+}
+
+.future-member .sidebar-content .info-box ul li {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    line-height: 26px;
+    color: #142441;
+    margin-bottom: 5px;
+}
+
+.future-member .sidebar-content .info-box ul li a {
+    display: inline-block;
+    color: #142441;
+}
+
+.future-member .sidebar-content .info-box ul li a:hover {}
+
+.future-member .sidebar-content .info-box .contact {
+    margin-bottom: 43px;
+}
+
+.future-member .sidebar-content .info-box {
+    position: relative;
+}
+
+.future-member .sidebar-content .info-box .shape .shape-1 {
+    position: absolute;
+    right: -167px;
+    bottom: 0px;
+    width: 123px;
+    height: 123px;
+    background-repeat: no-repeat;
+}
+
+.future-member .sidebar-content .info-box .shape .shape-2 {
+    position: absolute;
+    right: -115px;
+    bottom: -90px;
+    width: 210px;
+    height: 210px;
+    background: #f8f9fa;
+    border-radius: 50%;
+    z-index: -1;
+}

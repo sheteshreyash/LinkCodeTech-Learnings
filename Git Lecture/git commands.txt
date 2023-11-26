@@ -1,0 +1,14 @@
+------Git Commands-------
+
+1) git init
+
+2) git status
+
+3) git add . (Uploads all the files in your folder to the git repository)
+3) git add "file Name" (Uploads the specific file in your folder to the git repository)
+
+4) git commit -m "The command which you have to add first"
+
+5) git remote add origin "---Non recurring Link---"
+
+6) git push -u origin master 

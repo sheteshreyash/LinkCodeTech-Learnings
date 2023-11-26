@@ -1,0 +1,219 @@
+
+(Ahilya)
+
+
+AGILE METHODOLOGY:-
+
+-Agile Is basically iterative(same method repeat ) & incremental(we can chgange as per requirement) Approach method.
+-Customer no need to wait for long time for software.
+-We can Developed ,test Peace of Software And Give it To client .
+-While Client Working on software meanwhile we can develop the remaining part , test it and give it to customer.
+-We Can do Changes in software as per requirement.
+-there is good cummunication between customer ,developer, tester ,product owner.
+-every team members works for achieve one goal and it would be helpful for whole project.
+
+
+SCRUM:-like canban...
+-Scrum if framework to follow the agile principles.
+-Scrum Team Include Product Owner,Scrum master,Developer,tester And QA(Quality Assurance).
+
+
+
+
+==================================================================
+
+
+(Komal)
+
+
+1)Product Owner:-   
+
+-Product Owner Is Connected To Customer.
+-Product Owner have To Do List Of All Project.
+-He Can Handle All Project 7n Adjust The Features Of Project.
+
+-----------------product backlog:--------------------
+
+
+2)Scrum Master:-  
+
+
+-Scrum Is Facilating And Driving All The Agile Process.
+-he Should Know how to drive all the process of Agile.
+-HE Can Adjust the features of project.
+-Scrum Master Is The Main Part Of Team.
+-Scrum Master Handle All The Project Team.
+
+
+
+
+=================================================================
+
+(Mrunal)
+
+---------------sprint backlog:-----------------------
+
+3)Developer:-   
+
+-Developer Design The Project And Make THE code.
+------------------------------------------------------------
+
+4)Tester:- 
+
+-Tester is Test The Code .
+-If the code is not working well then tester can command the developer to change the code.
+-----------------------------------------------------------------
+
+5)QA Team:- 
+
+-Qa Find the bugs and errors in code.
+
+
+
+=======================================================
+
+(nikhil) 
+
+SCRUM TERMINOLOGY :-  
+
+1-USER STORY:-
+-user story is one module or feature of software.
+
+-------------------------------------------------------
+
+2-EPIC:-
+
+-Epic is collection of User stories.
+-Epic can split in Multiple user Stories.
+-------------------------------------------------------
+
+3-Product Backlog:-
+-Product Backlog Is A List Of User Stories Created BY Product Owner At The Begining Of Project.
+
+
+
+
+
+================================================================
+
+(Ruchira)
+
+
+4-SPRINT:-
+-Sprint Is Time Period To Complete The One User Story.
+-Sprint id Decide by product owner.
+-Basically Sprint time is 2-4 Weeks.
+-------------------------------------------------------
+
+5-Sprint Planning Meeting :-
+-Sprint planning Meeting is Conducted By Team At The Begining Of project
+-In This Meeting All Team Memebers Define What We Will Do In Sprint.
+
+----------------------------------------------------------
+
+6-Sprint Backlog:-
+
+
+
+=====================================================================
+
+
+(Saurabh)
+
+
+7-Scrum Meeting:-Scrum Meeting Is a Standup call.
+
+-Scrum Meeting Is Conducted EveryDay By Scrum Master for all team Members.
+
+-This Meet is only of 10 to 15 minutes.
+
+-IN This Meet all members tell their queries to scrum master.
+
+-Scrum master Track Entire project With thew help of Team.
+------------------------------------------------------
+
+-In Meeting Mostly # Questions Asked :-
+1)What did You Do Yesterday?
+2)What Will You Do Today?
+3)Are There Any Queries In Your Way?
+
+
+
+====================================================================
+
+(Shubham)
+
+
+8-Scrum Reprospective Meeting:-
+-This Meeting Conducted After Completing One Sprint.
+-In this meet the will decide What Would We Implement In This Sprint.
+-This Meet Conducted By Scrum Master.
+
+9-Story Point:-
+-It Is Kind Of Rough Estimation.
+-Story Point Always Given In Fibbonacci Series.
+-1 Story Point = 1 Hour/ 1Day(5-6 Hours)
+
+10-BurnDown Chart:-
+-BurnDown Chart Is Like a Graph.
+-In This Chart Scrum Master Can See Process Of Every team Members.
+-Burndown Chart Is Handle By Scrum Master.
+-Due To This Scrum Master Able To See How Much Part Of Spirit Is Remaining.
+
+
+==========================================================================
+
+(Vaishnavi and vimukta)
+
+SCRUM PROCESS:-
+
+
+
+
+
+
+
+12 Principles of Agile Manifesto
+The 12 Principles of the Agile Manifesto are as follows:
+
+The first principle is to take a customer-oriented approach and keep them updated.
+Make changes whenever and wherever required, even at the end of the development stage for any competitive changes.
+Delivering the software to customers on time with more flexibility.
+Collaboration between Business and development teams.
+Give support and motivation to the team member who shows interest in the project. Give them that extra work there would like to do, and trust them to get the job done.
+Have a face-to-face integration with the team.
+Working software is the primary measure of progress.
+Agile processes promote sustainable development for all.
+Continuous attention to technical excellence and good design enhances agility.
+The simplicity of the agile environment.
+The best practices come from self-organizing teams.
+Work effectively within and cross-functional teams.
+
+
+
+
+====================================================================================
+
+
+
+
+
+
+
+
+
+
+kanban
+
+Scrum 
+Sprints
+Product
+Visual Management
+Testing
+Retrospective
+Agile Manifesto
+
+
+
+
+
